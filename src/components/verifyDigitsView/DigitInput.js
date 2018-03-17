@@ -38,7 +38,7 @@ class DigitInput extends React.Component {
         maxLength={1}
         style={styles.digit}
         value={this.props.value}
-        onChangeText={(input) => { if (input !== '') this.props.digitChanged(this.props.index, input) }}
+        onChangeText={(input) => { this.props.digitChanged(this.props.index, input) }}
         ref={(component) => { this.compnent = component }}
       />)
   }

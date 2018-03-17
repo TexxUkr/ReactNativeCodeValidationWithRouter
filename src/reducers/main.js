@@ -26,8 +26,9 @@ export default (state = { ...notesInitState }, action) => {
       return ({ ...state, currentScene: locationScene })
     case DIGIT_CHANGED: {
       const newDigits = [...state.digits]
-      const newFocus = [false, false, false, false, false, false]
-      if (action.payload.id >= 0 && action.payload.id < 5) {
+      const newFocus = [...state.focus]
+      if (action.payload.value !== '') {
+        newFocus[action.payload.id] = false
         newFocus[action.payload.id + 1] = true
       }
       newDigits[action.payload.id] = action.payload.value
