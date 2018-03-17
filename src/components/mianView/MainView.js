@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { View, Text, Button } from 'react-native'
+import { View } from 'react-native'
 import { openVerifyDigitsSceneView } from '../../actions/main'
+import { Button } from '../common/index'
 
 
 const styles = {
@@ -18,11 +19,9 @@ const MainView = (props) => {
   console.info('main view is here ')
   return (
     <View style={styles.container}>
-      <Text> Main View </Text>
-      <Button
-        title="Open Verify Digits"
-        onPress={() => (props.openVerifyDigitsSceneView())}
-      />
+      <Button onPress={() => (props.openVerifyDigitsSceneView())}>
+        Open Verify Digits
+      </Button>
     </View>
   )
 }

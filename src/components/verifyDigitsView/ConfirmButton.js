@@ -1,13 +1,12 @@
 import React from 'react'
 import { View, TouchableOpacity, Text } from 'react-native'
 import PropTypes from 'prop-types'
+import { Button } from '../common/index'
 
-const readyColor = '#ffff29'
 const notReadyColor = '#dadad8'
 
 const styles = {
   button: {
-    backgroundColor: '#dadad8',
     height: 40,
     marginLeft: 20,
     marginRight: 20,
@@ -18,16 +17,12 @@ const styles = {
 }
 
 const ConfirmButton = props => (
-  <View>
-    <TouchableOpacity
-      style={{ ...styles.button, backgroundColor: props.ready ? readyColor : notReadyColor }}
-      onPress={props.ready ? props.onPress : () => null}
-    >
-      <Text >
-        {props.children}
-      </Text>
-    </TouchableOpacity>
-  </View>
+  <Button
+    style={props.ready ? { ...styles.button } : { ...styles.button, backgroundColor: notReadyColor }}
+    onPress={props.ready ? props.onPress : () => null}
+  >
+    {props.children}
+  </Button>
 )
 
 ConfirmButton.propTypes = {
