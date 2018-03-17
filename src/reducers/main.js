@@ -26,11 +26,18 @@ export default (state = { ...notesInitState }, action) => {
       return ({ ...state, currentScene: locationScene })
     case DIGIT_CHANGED: {
       const newDigits = [...state.digits]
-      const newFocus = [...state.focus]
+      let newFocus = [...state.focus]
       if (action.payload.value !== '') {
         newFocus[action.payload.id] = false
         newFocus[action.payload.id + 1] = true
       }
+      
+      if (action.payload.value === '') {
+        newFocus = [...notesInitState.focus]
+        newFocus[0] = false
+        newFocus[action.payload.id] = true
+      }
+
       newDigits[action.payload.id] = action.payload.value
       if (newDigits.includes('')) {
         return ({
