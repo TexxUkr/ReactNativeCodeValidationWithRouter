@@ -32,7 +32,7 @@ export default (state = { ...notesInitState }, action) => {
       }
       newDigits[action.payload.id] = action.payload.value
       if (newDigits.includes('')) {
-        return ({ ...state, digits: newDigits, ready: false, focus: newFocus })
+        return ({...state, digits: newDigits, ready: false, focus: newFocus })
       }
       return ({ ...state, digits: newDigits, ready: true, focus: newFocus })
     }

@@ -14,7 +14,8 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
-    flex: 0.5,
+    maxHeight: 300,
+    flex: 1,
   },
   message: {
     display: 'flex',

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const styles = {
   digit: {
-    fontSize: 20,
+    fontSize: 22,
     borderBottomColor: 'blue',
     borderBottomWidth: 1,
     marginLeft: 5,
@@ -32,11 +32,13 @@ class DigitInput extends React.Component {
     return (
       <TextInput
         autoCorrect={false}
+        disableFullscreenUI
+        underlineColorAndroid="transparent"
         keyboardType="numeric"
         maxLength={1}
         style={styles.digit}
         value={this.props.value}
-        onChangeText={input => this.props.digitChanged(this.props.index, input)}
+        onChangeText={(input) => { if (input !== '') this.props.digitChanged(this.props.index, input) }}
         ref={(component) => { this.compnent = component }}
       />)
   }
