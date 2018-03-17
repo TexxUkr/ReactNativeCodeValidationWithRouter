@@ -6,7 +6,7 @@ import ConfirmButton from './ConfirmButton'
 import { digitChanged, openLocationSceneView } from '../../actions/index'
 import DigitInput from './DigitInput'
 
-const phone = '+14158185122'
+const phone = '+380442558255'
 // const message = 'We sent 6 digit code to' + '\n' + phone + '\n' + 'Please enter this code below'
 
 const styles = {
