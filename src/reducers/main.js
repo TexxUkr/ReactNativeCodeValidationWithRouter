@@ -21,7 +21,7 @@ export default (state = { ...notesInitState }, action) => {
       return ({ ...state, currentScene: mainScene, inputs: newInputs })
     }
     case VERIFY_DIGITS_VIEW_IS_OPENED:
-      return ({ ...state, currentScene: verifyDigitsScene })
+      return ({ ...notesInitState, currentScene: verifyDigitsScene })
     case LOCATION_VIEW_IS_OPENED:
       return ({ ...state, currentScene: locationScene })
     case DIGIT_CHANGED: {
@@ -32,9 +32,13 @@ export default (state = { ...notesInitState }, action) => {
       }
       newDigits[action.payload.id] = action.payload.value
       if (newDigits.includes('')) {
-        return ({...state, digits: newDigits, ready: false, focus: newFocus })
+        return ({
+          ...state, digits: newDigits, ready: false, focus: newFocus,
+        })
       }
-      return ({ ...state, digits: newDigits, ready: true, focus: newFocus })
+      return ({
+        ...state, digits: newDigits, ready: true, focus: newFocus,
+      })
     }
     default:
       return state

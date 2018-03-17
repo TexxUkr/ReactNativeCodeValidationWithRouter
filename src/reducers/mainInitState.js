@@ -4,7 +4,6 @@ const mainInitState = {
   error: '',
   currentScene: '',
   focus: [true, false, false, false, false, false],
-  inputs: {},
 }
 
 export default mainInitState

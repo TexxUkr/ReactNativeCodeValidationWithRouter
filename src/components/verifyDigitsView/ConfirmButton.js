@@ -21,7 +21,7 @@ const ConfirmButton = props => (
   <View>
     <TouchableOpacity
       style={{ ...styles.button, backgroundColor: props.ready ? readyColor : notReadyColor }}
-      onPress={props.onPress}
+      onPress={props.ready ? props.onPress : () => null}
     >
       <Text >
         {props.children}

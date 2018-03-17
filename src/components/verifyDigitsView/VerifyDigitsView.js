@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import ConfirmButton from './ConfirmButton'
-import { digitChanged } from '../../actions/main'
+import { digitChanged, openLocationSceneView } from '../../actions/index'
 import DigitInput from './DigitInput'
 
 const phone = '+14158185122'
@@ -80,7 +80,7 @@ const VerifyDigitsView = (props) => {
       </View>
       <View>
         <ConfirmButton
-          onPress={() => null}
+          onPress={props.openLocationSceneView}
           ready={props.ready}
         >
           Confirm
@@ -95,11 +95,14 @@ VerifyDigitsView.propTypes = {
   focus: PropTypes.arrayOf(PropTypes.bool).isRequired,
   ready: PropTypes.bool.isRequired,
   digitChanged: PropTypes.func.isRequired,
+  openLocationSceneView: PropTypes.func.isRequired,
 }
 
 
 const mapDispatchToProps = dispatch => ({
   digitChanged: (id, value) => dispatch(digitChanged(id, value)),
+  openLocationSceneView: () => dispatch(openLocationSceneView()),
+
 })
 
 const mapStateToProps = state => ({
